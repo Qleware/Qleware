@@ -1,0 +1,58 @@
+Hero section:
+    Explore and Procure Your B2B Leads With Qleware !
+
+Service:
+    Our Services 
+    Data Generation
+        Targeted Data
+        Data Enrichment
+        CRM Friendly
+    Business Development
+        Multi-Channel Outreach
+        Strategic Partnerships
+        Sales Funnel Optimization
+
+Benefits:
+    Your Benefits
+        Stay on Track
+        2x Time on Approach
+        Boost Your Sales Pipeline
+
+Knowledge:
+    How Vital is Lead Generation in a sales cycle ?
+
+Why:
+    Expertise in IT Services
+    Lead Scoring and Qualification
+    Resource Efficiency
+    Saves More Time
+    Performance Analytics
+    Support and Consultation
+
+About us:
+    About us
+
+Pricing:
+    Data Generation Pricing Plans
+
+    ------ Table content --------
+    Name of the Company, Person, Designation.
+    Company Overview (Short Description, Industry type, Website)
+    Person's Social Platform URL+ Email
+    Person's Contact No
+    Company HQ (Location, Contact Details )
+    Keyword Match Indication
+    Company Revenue Details
+    Company Funding Details
+    Lead Scoring
+    Companies Recent News & Activities
+    CRM Compatible Data Sheet
+
+    Business Development Pricing Plans
+        Monthly  Billing
+        Percentage Sharing
+        Custom  Billing
+
+Contact:
+    Get in Touch.
+    We'd love to collaborate!
