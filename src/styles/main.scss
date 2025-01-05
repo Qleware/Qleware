@@ -1,6 +1,42 @@
 @use 'base';
 
+// .v-main {
+//     // background-color: green;
+// }
 
-.v-main {
-    background-color: green;
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: inherit;
+}
+
+.hero-section {
+    background-color: base.$primary-color;
+    color: #ffffff;
+
+    .hero-section__container__content__body {
+        color: base.$primary-text-color;
+    }
+}
+
+.v-app-bar.v-toolbar {
+    background-color: base.$primary-color;
+}
+
+.container__content {
+    padding: 16px 0px;
+}
+
+.section__heading {
+    font-size: 64px;
+}
+.section__sub-heading {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.service-section {
+    .section__card {
+        background-color: #fbf8fd;
+    }
 }
