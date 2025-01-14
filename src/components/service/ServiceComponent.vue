@@ -36,47 +36,53 @@ export default {
 </script>
 
 <template>
-    <v-container class="container">
-        <div class="container__content">
-            <v-row>
-                <v-col>
-                    <h3 class="section__heading">Our Services</h3>
-                </v-col>
-                <v-col align-self="center">
-                    <blockquote class="section__quote">Empowering Growth through Precision Lead
-                        Generation
-                        and Strategic
-                        Business Development.
-                    </blockquote>
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col>
-                    <h6 class="section__sub-heading">Data Generation</h6>
-                    <p class="w-md-66">Collecting Data - lead scoring, key contacts, funding/revenue, news, and more.
-                    </p>
-                    <div class="wrapper mt-6">
-                        <v-row>
-                            <v-col v-for="service in dataService" cols="12">
-                                <v-card class="section__card" variant="tonal" :title="service.title"
-                                    :text="service.text" prepend-icon="mdi-home"></v-card>
-                            </v-col>
-                        </v-row>
-                    </div>
-                </v-col>
-                <v-col>
-                    <h6 class="section__sub-heading">Business Development</h6>
-                    <p class="w-md-66">Prospecting -Setting Appointments with your Target Audience - Deal closure</p>
-                    <div class="wrapper mt-6">
-                        <v-row>
-                            <v-col v-for="service in businessService" cols="12">
-                                <v-card class="section__card" variant="tonal" :title="service.title"
-                                    :text="service.text" prepend-icon="mdi-home"></v-card>
-                            </v-col>
-                        </v-row>
-                    </div>
-                </v-col>
-            </v-row>
-        </div>
-    </v-container>
+    <section class="service-section">
+        <v-container class="container">
+            <div class="container__content">
+                <v-row>
+                    <v-col>
+                        <h1 class="section__heading">Our Services</h1>
+                    </v-col>
+                    <v-col align-self="center">
+                        <blockquote class="section__quote">Empowering Growth through Precision Lead
+                            Generation
+                            and Strategic
+                            Business Development.
+                        </blockquote>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="12" md="6">
+                        <h2 class="section__sub-heading text-h6">Data Generation</h2>
+                        <p class="w-md-66">Collecting Data - lead scoring, key contacts, funding/revenue,
+                            news, and
+                            more.
+                        </p>
+                        <div class="wrapper mt-6">
+                            <v-row>
+                                <v-col v-for="service in dataService" cols="12">
+                                    <v-card class="section__card" variant="tonal" :title="service.title"
+                                        :text="service.text" prepend-icon="mdi-home"></v-card>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                        <h2 class="section__sub-heading">Business Development</h2>
+                        <p class="w-md-66">Prospecting -Setting Appointments with your Target Audience -
+                            Deal closure
+                        </p>
+                        <div class="wrapper mt-6">
+                            <v-row>
+                                <v-col v-for="service in businessService" cols="12">
+                                    <v-card class="section__card" variant="tonal" :title="service.title"
+                                        :text="service.text" prepend-icon="mdi-home"></v-card>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                </v-row>
+            </div>
+        </v-container>
+    </section>
 </template>
