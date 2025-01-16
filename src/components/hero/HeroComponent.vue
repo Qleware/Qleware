@@ -3,7 +3,7 @@
         <v-container class="hero-section__container">
             <div class="hero-section__container__content py-8">
                 <h1 class="hero-section__container__content__heading mb-4 text-center text-h3">
-                    Explore and Procure your B2B Leads with Qleware
+                    Explore and Procure <br> your B2B Leads with Qleware
                 </h1>
                 <div class="hero-section__container__content__body mb-4 text-center">
                     Build a flexible strategy that scales with your business and supports efforts beyond the basic

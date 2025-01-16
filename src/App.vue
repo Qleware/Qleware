@@ -14,6 +14,8 @@ export default {
                 "Privacy policy"
             ],
             socialPlatformIcons: ['mdi-home', 'mdi-video', 'mdi-home'],
+            drawer: false,
+            group: null,
         }
     },
     computed: {
@@ -26,7 +28,12 @@ export default {
         footerResourceItems() {
             return this.nav.filter(resourceItem => ["Terms & conditions", "Privacy policy"].includes(resourceItem))
         }
-    }
+    },
+    watch: {
+        group() {
+            this.drawer = false
+        },
+    },
 }
 </script>
 
@@ -34,26 +41,41 @@ export default {
     <v-app ref="app">
         <v-app-bar class="header" elevation="0">
             <template v-slot:prepend>
-                Qleware
+                <v-app-bar-nav-icon class="d-md-none" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             </template>
             <v-app-bar-title>
-                <v-list class="nav d-none d-md-flex">
-                    <v-list-item v-for="navItem in headerNavItems" class="nav__item" :key="navItem">
-                        <RouterLink :to="navItem.toLowerCase() == 'home' ? '/' : `/${navItem.toLowerCase()}`">
-                            {{ navItem }}
-                        </RouterLink>
-                    </v-list-item>
-                </v-list>
-                <!-- hello -->
+                <div class="d-flex justify-space-between">
+                    <v-col cols="auto" md="4">
+                        <div class="title">Qleware</div>
+                    </v-col>
+                    <v-col cols="6" class="nav d-none d-md-block">
+                        <v-list class="d-flex">
+                            <v-list-item v-for="navItem in headerNavItems" class="nav__item" :key="navItem">
+                                <RouterLink :to="navItem.toLowerCase() == 'home' ? '/' : `/${navItem.toLowerCase()}`">
+                                    {{ navItem }}
+                                </RouterLink>
+                            </v-list-item>
+                        </v-list>
+                    </v-col>
+                    <v-col cols="4" class="d-none d-md-flex"></v-col>
+                </div>
             </v-app-bar-title>
-            <template v-slot:append>
-                <v-btn class="d-none d-md-block">Get in touch</v-btn>
-                <v-icon icon="mdi-menu d-md-none"></v-icon>
-            </template>
         </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" temporary>
+            <v-list>
+                <v-list-item v-for="navItem in headerNavItems" :key="navItem">
+                    <RouterLink :to="navItem.toLowerCase() == 'home' ? '/' : `/${navItem.toLowerCase()}`">
+                        {{ navItem }}
+                    </RouterLink>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
+
         <v-main>
             <RouterView />
         </v-main>
+
         <v-footer>
             <v-container class="container">
                 <div class="footer__content">
