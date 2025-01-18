@@ -1,8 +1,8 @@
 @use 'base';
 
-// .v-main {
-//     // background-color: green;
-// }
+a {
+    text-decoration: none;
+}
 
 .nav {
     display: flex;
@@ -11,16 +11,16 @@
 }
 
 .hero-section {
-    background-color: base.$primary-color;
-    color: #ffffff;
+    background-color: rgb(var(--v-theme-primary));
+    color: rgb(var(--v-theme-on-primary));
 
     .hero-section__container__content__body {
-        color: base.$primary-text-color;
+        color:  rgb(var(--v-theme-on-primary-darken-1));
     }
 }
 
 .v-app-bar.v-toolbar {
-    background-color: base.$primary-color;
+    background-color:  rgb(var(--v-theme-primary));
 }
 
 .service-section {
@@ -30,13 +30,13 @@
 }
 
 .benefit-section, .why-section {
-    background: base.$text-dark1;
-    color: #ffffff;
+    background:rgb(var(--v-theme-primary));
+    color: rgb(var(--v-theme-on-primary));
 }
 
 .v-footer {
-    background-color: #1A1120;
-    color: #ffffff;
+    background-color: rgb(var(--v-theme-dark));
+    color: rgb(var(--v-theme-on-dark-1));;
 
     .footer__nav {
         .v-list-item {
@@ -78,4 +78,8 @@
       height: 100%;
       width: 90%;
     }
+}
+
+.nav__item--active, .nav__item--active:active {
+    color: rgb(var(--v-theme-secondary));;
 }

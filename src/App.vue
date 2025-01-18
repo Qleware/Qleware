@@ -6,33 +6,45 @@ export default {
         return {
             theme: "light",
             nav: [
-                "Home",
-                "Service",
-                "About",
-                "Contact",
-                "Terms & conditions",
-                "Privacy policy"
+                { name: 'Home', isActive: true, isSection: false },
+                { name: 'Service', isActive: false, isSection: false },
+                { name: 'About', isActive: false, isSection: false },
+                { name: 'Contact', isActive: false, isSection: false },
+                { name: 'Terms & conditions', isActive: false, isSection: false },
+                { name: 'Privacy policy', isActive: false, isSection: false },
             ],
             socialPlatformIcons: ['mdi-home', 'mdi-video', 'mdi-home'],
             drawer: false,
-            group: null,
+        }
+    },
+    methods: {
+        getPath(navItem) {
+            const navItemName = navItem.name.toLowerCase();
+
+            if (navItemName == 'home') {
+                return '/';
+            }
+            else if (navItemName == 'service') {
+                return '/#service'
+            }
+            else {
+                return '/' + navItemName;
+            }
+        },
+        getCurrentPath() {
+            return this.$route.fullPath;
         }
     },
     computed: {
         headerNavItems() {
-            return this.nav.filter(resourceItem => !["Terms & conditions", "Privacy policy"].includes(resourceItem))
+            return this.nav.filter(resourceItem => !["Terms & conditions", "Privacy policy"].includes(resourceItem.name))
         },
         footerNavItems() {
-            return this.nav.filter(navItem => ["Service", "Contact"].includes(navItem))
+            return this.nav.filter(navItem => ["Service", "Contact", "About"].includes(navItem.name))
         },
         footerResourceItems() {
-            return this.nav.filter(resourceItem => ["Terms & conditions", "Privacy policy"].includes(resourceItem))
+            return this.nav.filter(resourceItem => ["Terms & conditions", "Privacy policy"].includes(resourceItem.name))
         }
-    },
-    watch: {
-        group() {
-            this.drawer = false
-        },
     },
 }
 </script>
@@ -51,8 +63,9 @@ export default {
                     <v-col cols="6" class="nav d-none d-md-block">
                         <v-list class="d-flex">
                             <v-list-item v-for="navItem in headerNavItems" class="nav__item" :key="navItem">
-                                <RouterLink :to="navItem.toLowerCase() == 'home' ? '/' : `/${navItem.toLowerCase()}`">
-                                    {{ navItem }}
+                                <RouterLink :to="getPath(navItem)"
+                                    :class="getCurrentPath() == getPath(navItem) ? 'nav__item--active': ''">
+                                    {{ navItem.name }}
                                 </RouterLink>
                             </v-list-item>
                         </v-list>
@@ -65,8 +78,9 @@ export default {
         <v-navigation-drawer v-model="drawer" temporary>
             <v-list>
                 <v-list-item v-for="navItem in headerNavItems" :key="navItem">
-                    <RouterLink :to="navItem.toLowerCase() == 'home' ? '/' : `/${navItem.toLowerCase()}`">
-                        {{ navItem }}
+                    <RouterLink :to="getPath(navItem)"
+                        :class="getCurrentPath() == getPath(navItem) ? 'nav__item--active': ''">
+                        {{ navItem.name }}
                     </RouterLink>
                 </v-list-item>
             </v-list>
@@ -93,7 +107,7 @@ export default {
                             <h4>Company</h4>
                             <v-list>
                                 <v-list-item v-for="navItem in footerNavItems">
-                                    {{ navItem }}
+                                    {{ navItem.name }}
                                 </v-list-item>
                             </v-list>
                         </v-col>
@@ -101,7 +115,7 @@ export default {
                             <h4>Resources</h4>
                             <v-list>
                                 <v-list-item v-for="resourceItem in footerResourceItems">
-                                    {{ resourceItem }}
+                                    {{ resourceItem.name }}
                                 </v-list-item>
                             </v-list>
                         </v-col>

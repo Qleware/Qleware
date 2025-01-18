@@ -40,20 +40,16 @@ const router = createRouter({
       component: TermsAndConditionsView,
     },
   ],
-  // scrollBehavior(to, from, savedPosition) {
-  //   // return desired position
-  //   if (savedPosition) {
-  //     return savedPosition
-  //   } else if (to.hash) {
-  //     return {
-  //       el: to.hash,
-  //     }
-  //   } else {
-  //     return {
-  //       el: document.getElementById('hero-section'),
-  //     }
-  //   }
-  // },
+  scrollBehavior(to, from, savedPosition) {
+    console.log(to)
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+    return savedPosition || { top: 0 }
+  },
 })
 
 export default router

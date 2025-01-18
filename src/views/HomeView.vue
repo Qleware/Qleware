@@ -21,9 +21,11 @@ export default {
 </script>
 
 <template>
-  <HeroComponent />
-  <ServiceComponent />
-  <BenefitComponent />
-  <KnowledgeComponent />
-  <WhyComponent />
+  <div>
+    <HeroComponent />
+    <ServiceComponent />
+    <BenefitComponent />
+    <KnowledgeComponent />
+    <WhyComponent />
+  </div>
 </template>

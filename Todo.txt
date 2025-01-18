@@ -1,0 +1,14 @@
+Today:
+4. Theme
+1. Footer
+2. About - Image
+3. Contact - Form styling
+5. Hero section bootom space
+6, Navigation bar - color
+
+Whole:
+1. Font family and size
+2. spacing
+3. Knowledge - Image
+4. Node mailer
+5. Mobile responsiveness

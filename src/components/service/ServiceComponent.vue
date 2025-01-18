@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-    <section class="service-section">
+    <section class="service-section" id="service">
         <v-container class="container">
             <div class="container__content">
                 <v-row>
