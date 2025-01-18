@@ -93,7 +93,7 @@ export default {
         <v-footer>
             <v-container class="container">
                 <div class="footer__content">
-                    <v-row>
+                    <!-- <v-row>
                         <v-col cols="12" md="4">
                             <div class="footer__heading">
                                 <h1>Qleware</h1>
@@ -120,6 +120,59 @@ export default {
                             </v-list>
                         </v-col>
                         <v-col cols="auto">
+                            <div class="icon-wrapper">
+                                <h3>Socials</h3>
+                                <div>
+                                    <v-icon v-for=" iconName in socialPlatformIcons" :icon="iconName"
+                                        :key="iconName"></v-icon>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <h3>Contacts</h3>
+                                <div>
+                                    <v-icon icon="mdi-home"></v-icon>
+                                    +91 123456789
+                                </div>
+                            </div>
+                        </v-col>
+                    </v-row>
+                    <v-divider></v-divider>
+                    <v-row>
+                        <v-col cols="12">
+                            <p>@ 2023 Qleware. All Rights Reserved</p>
+                        </v-col>
+                    </v-row> -->
+                    <v-row justify="space-between">
+                        <v-col cols="12" md="3">
+                            <div class="footer__heading">
+                                <h1>Qleware</h1>
+                                <p>Qleware's range of services will assist you in streamlining your work. Contact us
+                                    today
+                                    to scale
+                                    your business.</p>
+                            </div>
+                        </v-col>
+                        <v-col cols="12" md="4">
+                            <v-row>
+                                <v-col cols="12" md="6" class="footer__nav">
+                                    <h4>Company</h4>
+                                    <v-list>
+                                        <v-list-item v-for="navItem in footerNavItems">
+                                            {{ navItem.name }}
+                                        </v-list-item>
+                                    </v-list>
+                                </v-col>
+                                <v-col cols="12" md="6 " class="footer__nav">
+                                    <h4>Resources</h4>
+                                    <v-list>
+                                        <v-list-item v-for="resourceItem in footerResourceItems">
+                                            {{ resourceItem.name }}
+                                        </v-list-item>
+                                    </v-list>
+                                </v-col>
+                            </v-row>
+                        </v-col>
+                        <v-col cols="12" md="3">
                             <div class="icon-wrapper">
                                 <h3>Socials</h3>
                                 <div>

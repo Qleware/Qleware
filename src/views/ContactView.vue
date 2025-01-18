@@ -68,23 +68,22 @@ export default {
                         </div>
                     </v-col>
                     <v-col class="right">
-                        <div class="content">
-                            <div class="text-left">
-                                <h2 class="section__sub-heading">Get in Touch</h2>
-                                <p>Fill out the form, and we’ll get back to you within 24 hours.</p>
-                            </div>
-                            <v-form @submit.prevent>
-                                <v-container>
-                                    <v-row>
-                                        <v-col v-for="field in formFields" cols="12">
-                                            <v-text-field v-model="field.value" :label="field.label"
-                                                :required="field.isRequired"></v-text-field>
-                                        </v-col>
+                        <v-sheet class="form">
+                            <div class="form__content">
+                                <div class="text-left form__head">
+                                    <h2 class="form__sub-heading">Get in Touch</h2>
+                                    <p class="form__text">Fill out the form, and we’ll get back to you within 24 hours.
+                                    </p>
+                                </div>
+                                <div class="form__body">
+                                    <v-form @submit.prevent>
+                                        <v-text-field v-for="field in formFields" v-model="field.value"
+                                            :label="field.label" :required="field.isRequired"></v-text-field>
                                         <v-btn class="mt-2" type="submit" block>Submit</v-btn>
-                                    </v-row>
-                                </v-container>
-                            </v-form>
-                        </div>
+                                    </v-form>
+                                </div>
+                            </div>
+                        </v-sheet>
                     </v-col>
                 </v-row>
             </v-container>

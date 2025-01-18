@@ -83,3 +83,20 @@ a {
 .nav__item--active, .nav__item--active:active {
     color: rgb(var(--v-theme-secondary));;
 }
+
+.contact-page {
+    .form{
+        background-color: rgb(var(--v-theme-primary));
+        color: rgb(var(--v-theme-on-primary));
+        padding: 48px 50px;
+        border-radius: 5px;
+    }
+
+    .form__head {
+        margin-bottom: 32px;
+    }
+
+    .form__text{
+        color: rgb(var(--v-theme-on-primary-darken-1));
+    }
+}

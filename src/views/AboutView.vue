@@ -29,7 +29,7 @@
         <v-spacer></v-spacer>
         <v-col cols="12" md="6">
           <div class="content">
-            <v-img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-img>
+            <v-img src="https://picsum.photos/350/325?random"></v-img>
           </div>
         </v-col>
       </v-row>
