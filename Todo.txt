@@ -2,10 +2,8 @@ Today:
 
 
 2. About - Image (issue with local image file path resolve)
-3. Contact - Form styling
 5. Hero section bottom space
-6, Navigation bar - color
-7. 404 not found
+
 
 Whole:
 1. Font family and size
@@ -17,3 +15,6 @@ Whole:
 Completed:
 4. Theme
 1. Footer
+3. Contact - Form styling
+6, Navigation bar - color
+7. 404 not found

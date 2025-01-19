@@ -29,6 +29,8 @@ const qlewareLightTheme = {
     'on-primary-darken-2': '#A89CB6',
     'on-secondary': '#FFFFFF',
     'on-tertiary': '#FFFFFF',
+    'on-background': '#000000',
+    'on-background-lighter-1': '#766E80',
   },
   variables: {},
 }

@@ -81,7 +81,15 @@ a {
 }
 
 .nav__item--active, .nav__item--active:active {
-    color: rgb(var(--v-theme-secondary));;
+    color: rgb(var(--v-theme-secondary));
+}
+
+.side-nav__item__link {
+    color: rgb(var(--v-theme-on-background-lighter-1));
+}
+
+.side-nav__item__link--active {
+    color: rgb(var(--v-theme-on-background));
 }
 
 .contact-page {

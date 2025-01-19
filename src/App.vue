@@ -75,11 +75,11 @@ export default {
             </v-app-bar-title>
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawer" temporary>
-            <v-list>
-                <v-list-item v-for="navItem in headerNavItems" :key="navItem">
-                    <RouterLink :to="getPath(navItem)"
-                        :class="getCurrentPath() == getPath(navItem) ? 'nav__item--active': ''">
+        <v-navigation-drawer v-model="drawer" temporary class="bg-background">
+            <v-list class="side-nav">
+                <v-list-item v-for="navItem in headerNavItems" :key="navItem" class="side-nav__item">
+                    <RouterLink :to="getPath(navItem)" class="side-nav__item__link"
+                        :class="getCurrentPath() == getPath(navItem) ? 'side-nav__item__link--active': ''">
                         {{ navItem.name }}
                     </RouterLink>
                 </v-list-item>
