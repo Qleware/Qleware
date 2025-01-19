@@ -36,9 +36,9 @@ export default {
 </script>
 
 <template>
-    <section class="service-section" id="service">
+    <section class="service section" id="service">
         <v-container class="container">
-            <div class="container__content">
+            <div class="content">
                 <v-row>
                     <v-col>
                         <h1 class="section__heading">Our Services</h1>
@@ -53,8 +53,9 @@ export default {
                 </v-row>
                 <v-row>
                     <v-col cols="12" md="6">
-                        <h2 class="section__sub-heading text-h6">Data Generation</h2>
-                        <p class="w-md-66">Collecting Data - lead scoring, key contacts, funding/revenue,
+                        <h2 class="section__sub-heading">Data Generation</h2>
+                        <p class="w-md-66 section__sub-heading-support">Collecting Data - lead scoring, key contacts,
+                            funding/revenue,
                             news, and
                             more.
                         </p>
@@ -69,7 +70,8 @@ export default {
                     </v-col>
                     <v-col cols="12" md="6">
                         <h2 class="section__sub-heading">Business Development</h2>
-                        <p class="w-md-66">Prospecting -Setting Appointments with your Target Audience -
+                        <p class="w-md-66 section__sub-heading-support">Prospecting -Setting Appointments with your
+                            Target Audience -
                             Deal closure
                         </p>
                         <div class="wrapper mt-6">

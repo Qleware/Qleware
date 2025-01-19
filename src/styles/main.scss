@@ -1,41 +1,150 @@
 @use 'base';
 
+// placeholder class
+%text-body {
+    font-family: base.$font-family-text;
+    font-weight: 400;
+}
+
+// mixins
+@mixin btn {
+    text-transform: capitalize;
+    font-weight: 600;
+    color: rgb(var(--v-theme-background));
+    letter-spacing: normal;
+}
+
+@mixin text-heading($color, $font-size){
+    color: rgb($color);
+    font-size: $font-size;
+}
+@mixin text-sub-heading($color, $font-size){
+    color: rgb($color);
+    font-size: $font-size;
+    font-weight: 400;
+}
+
+@mixin text-body($color) {
+    font-family: base.$font-family-text;
+    font-weight: 400;
+    color: rgb($color)
+  }
+
+@mixin btn--fill($font-size: 16px, $color, $font-family: base.$font-family-text){
+    @include btn;
+    background-color: rgb($color);
+    font-size: $font-size;
+    font-family: $font-family
+}
+@mixin btn--outline($font-size: 16px, $color, $font-family: base.$font-family-text){
+    @include btn;
+    border-color: rgb($color);
+    font-size: $font-size;
+    font-family: $font-family
+}
+@mixin btn--gradient($font-size: 16px, $color1, $color2, $font-family: base.$font-family-text){
+    @include btn;
+    background-image: linear-gradient(to right, $color1, $color2);
+    font-size: $font-size;
+    font-family: $font-family
+}
+
+// utility classes
+.text-body {
+    @extend %text-body;
+}
+
+.btn--gradient {
+    @include btn--gradient($color1: rgb(var(--v-theme-secondary)), $color2: rgb(var(--v-theme-tertiary)))
+}
+
+.btn--outline {
+    @include btn--outline($font-size: 16px, $color: var(--v-theme-background))
+}
+
+body {
+    font-family: base.$font-family;
+}
+
+// Global tyling
 a {
     text-decoration: none;
 }
+.v-list {
+    background-color: inherit;
+    color: inherit;
+}
 
+// Header styling
 .nav {
     display: flex;
     justify-content: center;
     background-color: inherit;
 }
 
-.hero-section {
-    background-color: rgb(var(--v-theme-primary));
-    color: rgb(var(--v-theme-on-primary));
-
-    .hero-section__container__content__body {
-        color:  rgb(var(--v-theme-on-primary-darken-1));
-    }
-
-    height: 550px;
-}
-
 .v-app-bar.v-toolbar {
     background-color:  rgb(var(--v-theme-primary));
 }
 
-.service-section {
+.nav__item--active, .nav__item--active:active {
+    color: rgb(var(--v-theme-secondary));
+}
+
+.side-nav__item__link {
+    color: rgb(var(--v-theme-on-background-lighter-1));
+}
+
+.side-nav__item__link--active {
+    color: rgb(var(--v-theme-on-background));
+}
+
+// Hero section styling 
+.hero {
+    height: 550px;
+    background-color: rgb(var(--v-theme-primary));
+    color: rgb(var(--v-theme-light));
+
+    .section__heading {
+        @include  text-heading($color: var(--v-theme-light), $font-size: base.$font-size-heading-hero)
+    }
+
+    .section__body {
+        @include  text-body($color: var(--v-theme-on-primary-darken-1));
+    }
+
+}
+
+// Service section styling
+.service {
+    .section__heading {
+        @include text-heading($color: var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+    }
+
+    .section__sub-heading {
+        @include text-sub-heading($color: var(--v-theme-primary), $font-size: base.$font-size-sub-heading-1);
+
+        &-support {
+            @include text-body($color: var(--v-theme-on-background-lighter-1));
+            font-weight: 500;
+        }
+    }
+
     .section__card {
-        background-color: #fbf8fd;
+        // background-color: rgba(var(--v-theme-surface-variant), 0);
+    }
+
+    .section__quote {
+        @include text-body($color: var(--v-theme-on-background-lighter-1));
     }
 }
 
+// Benefit section styling
 .benefit-section, .why-section {
     background:rgb(var(--v-theme-primary));
-    color: rgb(var(--v-theme-on-primary));
+    color: rgb(var(--v-theme-light));
 }
 
+// Footer styling
 .v-footer {
     background-color: rgb(var(--v-theme-dark));
     color: rgb(var(--v-theme-on-dark-1));;
@@ -59,11 +168,7 @@ a {
     }
 }
 
-.v-list {
-    background-color: inherit;
-    color: inherit;
-}
-
+// About page styling
 .about-section {
     p {
         margin-bottom: 1rem;
@@ -82,22 +187,11 @@ a {
     }
 }
 
-.nav__item--active, .nav__item--active:active {
-    color: rgb(var(--v-theme-secondary));
-}
-
-.side-nav__item__link {
-    color: rgb(var(--v-theme-on-background-lighter-1));
-}
-
-.side-nav__item__link--active {
-    color: rgb(var(--v-theme-on-background));
-}
-
+// Contact page styling
 .contact-page {
     .form{
         background-color: rgb(var(--v-theme-primary));
-        color: rgb(var(--v-theme-on-primary));
+        color: rgb(var(--v-theme-light));
         padding: 48px 50px;
         border-radius: 5px;
     }

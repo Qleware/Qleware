@@ -3,11 +3,12 @@ Today:
 
 
 Whole:
+6. color
 1. Font family and size
 2. spacing
-3. Knowledge - Image
-4. Node mailer
 5. Mobile responsiveness
+4. Node mailer
+3. Knowledge - Image
 
 Completed:
 4. Theme

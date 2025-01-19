@@ -1,11 +1,11 @@
 <template>
-    <section class="hero-section">
-        <v-container class="hero-section__container">
-            <div class="hero-section__container__content py-8">
-                <h1 class="hero-section__container__content__heading mb-4 text-center text-h3">
+    <section class="hero section">
+        <v-container class="container">
+            <div class="content py-8">
+                <h1 class="section__heading mb-4 text-center">
                     Explore and Procure <br> your B2B Leads with Qleware
                 </h1>
-                <div class="hero-section__container__content__body mb-4 text-center">
+                <div class="section__body mb-4 text-center">
                     Build a flexible strategy that scales with your business and supports efforts beyond the basic
                     requirement.
                     It’s
@@ -18,13 +18,13 @@
                     the
                     competition.
                 </div>
-                <div class="hero-section__container__content__footer">
+                <div class="section__footer">
                     <v-row justify="center">
                         <v-col cols="auto">
-                            <v-btn variant="outlined">View pricing</v-btn>
+                            <v-btn variant="outlined" class="btn--outline">View pricing</v-btn>
                         </v-col>
                         <v-col cols="auto">
-                            <v-btn>Get in touch</v-btn>
+                            <v-btn class="btn--gradient">Get in touch</v-btn>
                         </v-col>
                     </v-row>
                 </div>
