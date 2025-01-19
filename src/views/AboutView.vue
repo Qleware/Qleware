@@ -29,7 +29,7 @@
         <v-spacer></v-spacer>
         <v-col cols="12" md="6">
           <div class="content">
-            <v-img src="https://picsum.photos/350/325?random"></v-img>
+            <img src="../assets/team2.svg" height="500" width="450" />
           </div>
         </v-col>
       </v-row>

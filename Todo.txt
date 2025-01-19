@@ -1,9 +1,6 @@
 Today:
 
 
-2. About - Image (issue with local image file path resolve)
-5. Hero section bottom space
-
 
 Whole:
 1. Font family and size
@@ -18,3 +15,5 @@ Completed:
 3. Contact - Form styling
 6, Navigation bar - color
 7. 404 not found
+2. About - Image (issue with local image file path resolve)
+5. Hero section bottom space

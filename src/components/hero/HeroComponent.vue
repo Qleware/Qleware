@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-section h-screen">
+    <section class="hero-section">
         <v-container class="hero-section__container">
             <div class="hero-section__container__content py-8">
                 <h1 class="hero-section__container__content__heading mb-4 text-center text-h3">
