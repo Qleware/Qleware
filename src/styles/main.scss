@@ -178,7 +178,7 @@ a {
 }
 // Hero section styling 
 .hero {
-    height: 550px;
+    // height: 550px;
     background-color: rgb(var(--v-theme-primary));
     color: rgb(var(--v-theme-light));
 
@@ -220,7 +220,7 @@ a {
 // Benefit section styling
 .benefit {
     @include section-card( $font-weight-heading: 400, $title-color: var(--v-theme-on-primary-lighter-2), $text-color: var(--v-theme-on-primary-lighter-3));
-
+    
     background:rgb(var(--v-theme-primary));
     color: rgb(var(--v-theme-light));
 
@@ -294,7 +294,7 @@ a {
             }
             &__icon {
                 margin-right: 1rem;
-                color: rgb(var(--v-theme-background));
+                color: rgb(var(--v-theme-on-primary-darken-2));
             }
         }
 
@@ -305,7 +305,7 @@ a {
             }
             &__icon {
                 margin-right: 1rem;
-                color: rgb(var(--v-theme-background));
+                color: rgb(var(--v-theme-on-primary-darken-2));
                 vertical-align: top;
             }
         }
@@ -348,6 +348,7 @@ a {
 .contact-page {
     .section__heading {
         @include text-heading(var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+        line-height: 1.25;
     }
     .section__heading-support {
         @include text-body(var(--v-theme-on-background-lighter-2))

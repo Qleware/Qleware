@@ -12,7 +12,7 @@ export default {
                 { name: 'Terms & conditions', isActive: false, isSection: false },
                 { name: 'Privacy policy', isActive: false, isSection: false },
             ],
-            socialPlatformIcons: ['mdi-home', 'mdi-video', 'mdi-home'],
+            socialPlatformIcons: ['mdi-whatsapp', 'mdi-instagram', 'mdi-linkedin', 'mdi-facebook'],
             drawer: false,
             isMdAndDown: null,
         }
@@ -61,7 +61,9 @@ export default {
             <v-app-bar-title>
                 <v-row>
                     <v-col cols="12" md="2" align-self="center">
-                        <div class="nav__brand">Qleware</div>
+                        <RouterLink to="/">
+                            <div class="nav__brand">Qleware</div>
+                        </RouterLink>
                     </v-col>
                     <v-col class="d-none d-md-block">
                         <v-list class="d-flex justify-center align-center nav__list">
@@ -76,22 +78,6 @@ export default {
                     </v-col>
                     <v-col class="d-none d-md-block" cols="2"></v-col>
                 </v-row>
-                <!-- <div class="d-flex justify-space-between"> -->
-                <!-- <v-col cols="auto" md="4">
-                        <div class="title">Qleware</div>
-                    </v-col>
-                    <v-col cols="6" class="nav d-none d-md-block">
-                        <v-list class="d-flex">
-                            <v-list-item v-for="navItem in headerNavItems" class="nav__item" :key="navItem">
-                                <RouterLink :to="getPath(navItem)"
-                                    :class="getCurrentPath() == getPath(navItem) ? 'nav__item--active': ''">
-                                    {{ navItem.name }}
-                                </RouterLink>
-                            </v-list-item>
-                        </v-list>
-                    </v-col>
-                    <v-col cols="4" class="d-none d-md-flex"></v-col> -->
-                <!-- </div> -->
             </v-app-bar-title>
         </v-app-bar>
 
@@ -112,11 +98,11 @@ export default {
 
         <v-footer class="footer">
             <v-container class="container">
-                <div class="footer__content">
+                <div class="footer__content py-8">
                     <v-row justify="space-between">
                         <v-col cols="12" md="4">
                             <div class="footer__heading">
-                                <h1>Qleware</h1>
+                                <h1 class="mb-3">Qleware</h1>
                                 <p class="footer__heading-support">Qleware's range of services will assist you in
                                     streamlining
                                     your work. Contact us
@@ -151,25 +137,25 @@ export default {
                             </v-row>
                         </v-col>
                         <v-col cols="12" md="3" class="footer__icons">
-                            <div class="footer__icons__social">
-                                <h3 class="footer__icons__social__heading">Socials</h3>
+                            <div class="footer__icons__social mb-8">
+                                <h3 class="footer__icons__social__heading mb-3">Socials</h3>
                                 <div>
                                     <v-icon v-for=" iconName in socialPlatformIcons" :icon="iconName" :key="iconName"
                                         class="footer__icons__social__icon"></v-icon>
                                 </div>
                             </div>
                             <div class="footer__icons__info">
-                                <h3 class="footer__icons__info__heading">Contacts</h3>
+                                <h3 class="footer__icons__info__heading mb-3">Contacts</h3>
                                 <div>
-                                    <v-icon class="footer__icons__info__icon" icon="mdi-home"></v-icon>
+                                    <v-icon class="footer__icons__info__icon" icon="mdi-phone"></v-icon>
                                     <div class="d-inline">+91 7010882621</div>
                                 </div>
                             </div>
                         </v-col>
                     </v-row>
-                    <v-divider></v-divider>
+                    <v-divider class="mt-4"></v-divider>
                     <v-row>
-                        <v-col cols="12" class="footer__copyright">
+                        <v-col cols="12" class="footer__copyright mt-4">
                             <p class="footer__copyright__text">@ 2025 Qleware. All Rights Reserved</p>
                         </v-col>
                     </v-row>

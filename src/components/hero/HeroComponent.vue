@@ -1,11 +1,16 @@
+<script>
+import { RouterLink } from 'vue-router'
+
+</script>
+
 <template>
     <section class="hero section">
         <v-container class="container">
-            <div class="content py-8">
-                <h1 class="section__heading mb-4 text-center">
+            <div class="content pt-8 py-16">
+                <h1 class="section__heading mb-5 text-center">
                     Explore and Procure <br> your B2B Leads with Qleware
                 </h1>
-                <div class="section__body mb-4 text-center">
+                <div class="section__body mb-10 text-center">
                     Build a flexible strategy that scales with your business and supports efforts beyond the basic
                     requirement.
                     It’s
@@ -21,10 +26,7 @@
                 <div class="section__footer">
                     <v-row justify="center">
                         <v-col cols="auto">
-                            <v-btn variant="outlined" class="btn--outline">View pricing</v-btn>
-                        </v-col>
-                        <v-col cols="auto">
-                            <v-btn class="btn--gradient">Get in touch</v-btn>
+                            <RouterLink to="/contact"> <v-btn class="btn--gradient">Get in touch</v-btn> </RouterLink>
                         </v-col>
                     </v-row>
                 </div>
