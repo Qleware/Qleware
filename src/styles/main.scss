@@ -17,11 +17,16 @@
 @mixin text-heading($color, $font-size){
     color: rgb($color);
     font-size: $font-size;
+    text-transform: capitalize;
 }
 @mixin text-sub-heading($color, $font-size){
     color: rgb($color);
     font-size: $font-size;
     font-weight: 400;
+}
+
+@mixin  text-banner-heading($font-size: base.$font-size-banner-heading){
+    font-size: $font-size;
 }
 
 @mixin text-body($color) {
@@ -30,9 +35,21 @@
     color: rgb($color)
   }
 
+@mixin text-quote($text-color, $font-family: base.$font-family, $font-style: italic) {
+    color: rgb($text-color);
+    font-style: $font-style;
+    font-family: $font-family;
+}
+
 @mixin btn--fill($font-size: 16px, $color, $font-family: base.$font-family-text){
     @include btn;
     background-color: rgb($color);
+    font-size: $font-size;
+    font-family: $font-family
+}
+@mixin btn--tonal($font-size: 16px, $color, $font-family: base.$font-family-text, $tonal-strength: 0.5){
+    @include btn;
+    background-color: rgba($color, $tonal-strength);
     font-size: $font-size;
     font-family: $font-family
 }
@@ -49,6 +66,41 @@
     font-family: $font-family
 }
 
+@mixin nav-link($decoration: none, $text-color, $font-size: 1rem){
+    @extend %text-body;
+    text-decoration: $decoration;
+    color: rgb($text-color);
+    font-size: $font-size;
+}
+
+@mixin section-card($font-weight-heading, $title-color, $text-color) {
+    .section__card {
+        .v-card-title {
+            font-weight: $font-weight-heading;
+            font-size: base.$font-size-card-heading-1;
+        }
+        .v-card-item{
+            color: rgb($title-color);
+        }
+        .v-card-text {
+            @include text-body($text-color)
+        }
+    }
+}
+
+@mixin banner($background-color1, $background-color2, $text-color) {
+    background-image: linear-gradient(to right, $background-color1, $background-color2);
+    color: rgb($text-color);
+
+    .banner__title {
+        @include text-banner-heading();
+    }
+
+    .banner__text {
+        @extend %text-body
+    }
+}
+
 // utility classes
 .text-body {
     @extend %text-body;
@@ -60,6 +112,10 @@
 
 .btn--outline {
     @include btn--outline($font-size: 16px, $color: var(--v-theme-background))
+}
+
+.btn--fill {
+    @include btn--fill($font-size: 16px, $color: var(--v-theme-tertiary), $font-family: base.$font-family-text)
 }
 
 body {
@@ -77,18 +133,28 @@ a {
 
 // Header styling
 .nav {
-    display: flex;
-    justify-content: center;
-    background-color: inherit;
+    &__brand {
+        @include text-heading(var(--v-theme-background), $font-size: base.$font-size-heading-4);
+    }
+    &__item {
+        &__link {
+            @include nav-link($decoration: none, $text-color: var(--v-theme-on-primary), $font-size: base.$font-size-nav-link);
+        }
+        &--active, &--active:active {
+            color: rgb(var(--v-theme-secondary));
+            background-color: rgba(var(--v-theme-secondary), .1);
+            border: 2px solid rgba(var(--v-theme-secondary), .3);
+            border-radius: 50px;
+            display: inline-block;
+        }
+    }
 }
 
 .v-app-bar.v-toolbar {
     background-color:  rgb(var(--v-theme-primary));
 }
 
-.nav__item--active, .nav__item--active:active {
-    color: rgb(var(--v-theme-secondary));
-}
+
 
 .side-nav__item__link {
     color: rgb(var(--v-theme-on-background-lighter-1));
@@ -97,7 +163,19 @@ a {
 .side-nav__item__link--active {
     color: rgb(var(--v-theme-on-background));
 }
-
+// Home page styling 
+.home {
+    .banner {
+        @include banner(
+            $background-color1: rgb(var(--v-theme-secondary)), 
+            $background-color2: rgb(var(--v-theme-tertiary)),
+            $text-color: var(--v-theme-light)
+            );
+        &__button{
+            @include btn--tonal($font-size: 16px, $color: var(--v-theme-background), $font-family: base.$font-family-text, $tonal-strength: 0.2);
+        }
+    }
+}
 // Hero section styling 
 .hero {
     height: 550px;
@@ -116,6 +194,11 @@ a {
 
 // Service section styling
 .service {
+    @include section-card( $font-weight-heading: 400, $title-color: var(--v-theme-dark), $text-color: var(--v-theme-on-surface));
+
+    .v-icon {
+        color: rgb(var(--v-theme-tertiary));
+    }
     .section__heading {
         @include text-heading($color: var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
     }
@@ -129,47 +212,121 @@ a {
         }
     }
 
-    .section__card {
-        // background-color: rgba(var(--v-theme-surface-variant), 0);
-    }
-
     .section__quote {
         @include text-body($color: var(--v-theme-on-background-lighter-1));
     }
 }
 
 // Benefit section styling
-.benefit-section, .why-section {
+.benefit {
+    @include section-card( $font-weight-heading: 400, $title-color: var(--v-theme-on-primary-lighter-2), $text-color: var(--v-theme-on-primary-lighter-3));
+
     background:rgb(var(--v-theme-primary));
     color: rgb(var(--v-theme-light));
+
+    .section__heading {
+        @include text-heading($color: var(--v-theme-light), $font-size: base.$font-size-heading-1);
+    }
+    .section__heading-support{
+        @include text-body(var(--v-theme-on-primary-lighter-2))
+    }
+}
+
+// Knowledge section
+.knowledge {
+    .section__heading {
+        @include text-heading($color: var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+        line-height: 1.25;
+    }
+    .section__heading-support{
+        @include text-body(var(--v-theme-on-background-lighter-2))
+    }
+
+    .section__footer {
+        blockquote {
+            @include text-quote(var(--v-theme-primary), $font-family: base.$font-family, $font-style: italic);
+            
+        }
+    }
+}
+
+// Why section
+.why-section {
+    @extend .benefit;
+    
 }
 
 // Footer styling
-.v-footer {
-    background-color: rgb(var(--v-theme-dark));
-    color: rgb(var(--v-theme-on-dark-1));;
+.footer {
+    background-color: rgb(var(--v-theme-on-primary-darken-3));
 
-    .footer__nav {
-        .v-list-item {
-            padding-inline: 0;
-            padding-right: 0;
+    &__heading {
+        @include text-heading(var(--v-theme-background), $font-size: base.$font-size-heading-5);
+
+        &-support{
+            @include text-body(var(--v-theme-on-primary-lighter-3))
         }
     }
-    .icon-wrapper {
-        .v-icon{
-            margin-right: 1rem;
+
+    &__nav {
+        &__heading {
+            @include text-sub-heading(var(--v-theme-light-darken-1), $font-size: base.$font-size-sub-heading-2)
+        }
+
+        &__list {
+            
+            &__item{
+                padding-inline: 0 !important;
+                padding-right: 0 !important;
+                &__link {
+                    @include nav-link($decoration: underline, $text-color: var(--v-theme-on-primary-darken-2)); 
+                }
+
+            }
         }
     }
-    
-    .info {
-        .v-icon{
-            vertical-align: top;
+
+    &__icons {
+
+        &__social {
+            &__heading {
+                @include text-sub-heading(var(--v-theme-light-darken-1), $font-size: base.$font-size-sub-heading-2)
+            }
+            &__icon {
+                margin-right: 1rem;
+                color: rgb(var(--v-theme-background));
+            }
+        }
+
+        &__info {
+            color: rgb(var(--v-theme-background));
+            &__heading {
+                @include text-sub-heading(var(--v-theme-light-darken-1), $font-size: base.$font-size-sub-heading-2)
+            }
+            &__icon {
+                margin-right: 1rem;
+                color: rgb(var(--v-theme-background));
+                vertical-align: top;
+            }
+        }
+
+    }
+
+    &__copyright {
+        &__text {
+            @include text-body($color: var(--v-theme-on-primary-darken-2))
         }
     }
 }
 
 // About page styling
-.about-section {
+.about {
+    .section__heading {
+        @include text-heading(var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+    }
+    .section__body {
+        @include text-body(var(--v-theme-on-background-lighter-2))
+    }
     p {
         margin-bottom: 1rem;
     }
@@ -189,18 +346,42 @@ a {
 
 // Contact page styling
 .contact-page {
+    .section__heading {
+        @include text-heading(var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+    }
+    .section__heading-support {
+        @include text-body(var(--v-theme-on-background-lighter-2))
+    }
+
+    .contact-details {
+        .v-table {
+            background-color: rgb(var(--v-theme-background));
+        }
+        &__body {
+            &__row {
+                &__left {
+                    color: rgb(var(--v-theme-on-background));
+                }
+                &__right {
+                    @include text-body(var(--v-theme-on-background-lighter-2))
+                }
+            }
+        }
+    }
     .form{
         background-color: rgb(var(--v-theme-primary));
         color: rgb(var(--v-theme-light));
-        padding: 48px 50px;
-        border-radius: 5px;
     }
 
     .form__head {
-        margin-bottom: 32px;
+        @include text-heading(var(--v-theme-light), $font-size: base.$font-size-heading-5);
     }
 
     .form__text{
-        color: rgb(var(--v-theme-on-primary-darken-1));
+        @include text-body(var(--v-theme-on-primary-darken-2))
+    }
+
+    .form__input {
+        @include text-body(var(--v-theme-on-primary-lighter-2))
     }
 }

@@ -22,12 +22,13 @@ export default {
 </script>
 
 <template>
-    <section class="benefit-section">
+    <section class="benefit section">
         <v-container class="container">
             <div class="section__content">
                 <div class="text-center">
                     <h1 class="section__heading">Your benefits</h1>
-                    <p>Qleware services will provide you lots of benefits to your Sales process</p>
+                    <p class="section__heading-support">Qleware services will provide you lots of benefits to your Sales
+                        process</p>
                 </div>
                 <div class="section__body">
                     <v-row>

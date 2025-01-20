@@ -4,6 +4,7 @@ import HeroComponent from '../components/hero/HeroComponent.vue';
 import BenefitComponent from '@/components/benefit/BenefitComponent.vue';
 import KnowledgeComponent from '@/components/knowledge/KnowledgeComponent.vue';
 import WhyComponent from '@/components/why/WhyComponent.vue';
+import BannerComponent from '@/components/misc/BannerComponent.vue';
 
 export default {
   components: {
@@ -12,20 +13,20 @@ export default {
     BenefitComponent,
     KnowledgeComponent,
     WhyComponent,
+    BannerComponent
   },
-  // setup() {
-  //   const goTo = useGoTo()
-  //   return { goTo }
-  // }
 }
 </script>
 
 <template>
-  <div>
+  <div class="home">
     <HeroComponent />
     <ServiceComponent />
     <BenefitComponent />
     <KnowledgeComponent />
+    <BannerComponent title="Contact with us" btnIcon="mdi-video" btnText="Schedule a meet"
+      text="Interested to know more about how our Qualified Leads may help you to scale your business?" class="banner"
+      btnVariant="tonal" />
     <WhyComponent />
   </div>
 </template>

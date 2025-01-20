@@ -4,7 +4,8 @@ export default {
         title: String,
         text: String,
         btnText: String,
-        btnIcon: String
+        btnIcon: String,
+        btnVariant: String,
     }
 }
 </script>
@@ -15,11 +16,12 @@ export default {
             <div class="banner__content">
                 <v-row justify="space-between">
                     <v-col cols="4">
-                        <h3>{{ title }}</h3>
-                        <p>{{ text }}</p>
+                        <h3 class="banner__title">{{ title }}</h3>
+                        <p class="banner__text">{{ text }}</p>
                     </v-col>
-                    <v-col cols="4">
-                        <v-btn :prepend-icon="btnIcon">{{ btnText }}</v-btn>
+                    <v-col cols="4" align-self="center" class="text-center">
+                        <v-btn class="banner__button" :prepend-icon="btnIcon" :variant="btnVariant">{{ btnText
+                            }}</v-btn>
                     </v-col>
                 </v-row>
             </div>

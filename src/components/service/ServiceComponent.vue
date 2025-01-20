@@ -62,8 +62,8 @@ export default {
                         <div class="wrapper mt-6">
                             <v-row>
                                 <v-col v-for="service in dataService" cols="12">
-                                    <v-card class="section__card" variant="tonal" :title="service.title"
-                                        :text="service.text" prepend-icon="mdi-home"></v-card>
+                                    <v-card class="section__card" :title="service.title" :text="service.text"
+                                        prepend-icon="mdi-home" variant="flat"></v-card>
                                 </v-col>
                             </v-row>
                         </div>
@@ -77,8 +77,8 @@ export default {
                         <div class="wrapper mt-6">
                             <v-row>
                                 <v-col v-for="service in businessService" cols="12">
-                                    <v-card class="section__card" variant="tonal" :title="service.title"
-                                        :text="service.text" prepend-icon="mdi-home"></v-card>
+                                    <v-card class="section__card" :title="service.title" :text="service.text"
+                                        prepend-icon="mdi-home" variant="flat"></v-card>
                                 </v-col>
                             </v-row>
                         </div>

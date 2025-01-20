@@ -4,7 +4,7 @@
 
       <v-row>
         <v-col cols="12" md="6">
-          <section class="section about-section">
+          <section class="about section">
             <div class="content">
               <h1 class="section__heading">About us</h1>
               <div class="section__body">

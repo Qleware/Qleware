@@ -1,14 +1,14 @@
-Today:
+New:
 
 
-
-Whole:
-6. color
-1. Font family and size
 2. spacing
 5. Mobile responsiveness
 4. Node mailer
 3. Knowledge - Image
+10. service scolling to the heading
+
+In Progress:
+
 
 Completed:
 4. Theme
@@ -18,3 +18,7 @@ Completed:
 7. 404 not found
 2. About - Image (issue with local image file path resolve)
 5. Hero section bottom space
+8. Brand Logo
+9. Nav bar alignment
+6. color
+1. Font family and size
