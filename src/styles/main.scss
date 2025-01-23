@@ -176,6 +176,7 @@ a {
         }
     }
 }
+
 // Hero section styling 
 .hero {
     // height: 550px;
@@ -190,6 +191,14 @@ a {
         @include  text-body($color: var(--v-theme-on-primary-darken-1));
     }
 
+    @media (max-width: base.$xs-breakpoint) {
+        .section {
+            &__heading {
+                line-height: 1.4;
+            }
+        }
+      }
+    
 }
 
 // Service section styling

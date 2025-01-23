@@ -13,9 +13,9 @@ export default {
 }
 </script>
 <template>
-    <section class="knowledge section mt-4">
+    <section class="knowledge section mt-md-4">
         <v-container class="container">
-            <div class="section__content py-8">
+            <div class="section__content pt-5 pb-8 py-md-8">
                 <div class="text-left text-md-center">
                     <h1 class="section__heading mb-3">
                         How Vital is Lead Generation <br> in a sales cycle ?

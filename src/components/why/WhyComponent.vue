@@ -42,11 +42,11 @@ export default {
 <template>
     <section class="why-section">
         <v-container class="container">
-            <div class="section__content py-8">
+            <div class="section__content py-5 py-md-8">
                 <div class="text-md-center">
                     <h1 class="section__heading">Why Qleware?</h1>
                 </div>
-                <div class="section__body mt-8">
+                <div class="section__body mt-5 mt-md-8">
                     <v-row>
                         <v-col v-for="reason in reasons" :key="reason.title" cols="12" md="4">
                             <v-card class="section__card" variant="text" :title="reason.title" :text="reason.text"

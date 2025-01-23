@@ -42,14 +42,14 @@ export default {
 </script>
 
 <template>
-    <section class="service section mt-4" id="service">
+    <section class="service section" id="service">
         <v-container class="container">
-            <div class="content">
+            <div class="content py-5 py-md-8">
                 <v-row>
                     <v-col cols="12" md="6">
                         <h1 class="section__heading">Our Services</h1>
                     </v-col>
-                    <v-col align-self="center" cols="12" md="6">
+                    <v-col align-self="center" cols="12" md="6" class="pt-0 pt-md-3">
                         <blockquote class="section__quote">Empowering Growth through Precision Lead
                             Generation
                             and Strategic

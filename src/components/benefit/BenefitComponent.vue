@@ -25,10 +25,10 @@ export default {
 </script>
 
 <template>
-    <section class="benefit section mt-4">
+    <section class="benefit section mt-md-4">
         <v-container class="container">
-            <div class="section__content py-8">
-                <div class="text-left text-md-center mb-8">
+            <div class="section__content py-5 py-md-8">
+                <div class="text-left text-md-center mb-5 mb-md-8">
                     <h1 class="section__heading mb-3">Your benefits</h1>
                     <p class="section__heading-support">Qleware services will provide you lots of benefits to your Sales
                         process</p>

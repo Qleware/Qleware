@@ -33,12 +33,12 @@ const router = createRouter({
     {
       path: '/privacy',
       name: 'privacy',
-      component: PrivacyPolicyView,
+      redirect: '/',
     },
     {
       path: '/terms',
       name: 'terms',
-      component: TermsAndConditionsView,
+      redirect: '/',
     },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
   ],

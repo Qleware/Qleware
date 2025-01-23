@@ -9,8 +9,8 @@ export default {
                 { name: 'Service', isActive: false, isSection: false },
                 { name: 'About', isActive: false, isSection: false },
                 { name: 'Contact', isActive: false, isSection: false },
-                { name: 'Terms & conditions', isActive: false, isSection: false },
-                { name: 'Privacy policy', isActive: false, isSection: false },
+                { name: 'Terms', isActive: false, isSection: false },
+                { name: 'Privacy', isActive: false, isSection: false },
             ],
             socialPlatformIcons: ['mdi-whatsapp', 'mdi-instagram', 'mdi-linkedin', 'mdi-facebook'],
             drawer: false,
@@ -46,7 +46,7 @@ export default {
             return this.nav.filter(navItem => ["Service", "Contact", "About"].includes(navItem.name))
         },
         footerResourceItems() {
-            return this.nav.filter(resourceItem => ["Terms & conditions", "Privacy policy"].includes(resourceItem.name))
+            return this.nav.filter(resourceItem => ["Terms", "Privacy"].includes(resourceItem.name))
         }
     },
 }
@@ -98,7 +98,7 @@ export default {
 
         <v-footer class="footer">
             <v-container class="container">
-                <div class="footer__content py-8">
+                <div class="footer__content py-md-8">
                     <v-row justify="space-between">
                         <v-col cols="12" md="4">
                             <div class="footer__heading">
@@ -129,7 +129,9 @@ export default {
                                     <v-list class="footer__nav__list">
                                         <v-list-item v-for="resourceItem in footerResourceItems"
                                             class="footer__nav__list__item">
-                                            <RouterLink class="footer__nav__list__item__link">{{ resourceItem.name }}
+                                            <RouterLink :to="getPath(resourceItem)"
+                                                class="footer__nav__list__item__link">{{
+                                                resourceItem.name }}
                                             </RouterLink>
                                         </v-list-item>
                                     </v-list>

@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router'
 <template>
     <section class="hero section">
         <v-container class="container">
-            <div class="content pt-8 py-16">
+            <div class="content pt-8 pb-8 pb-md-16">
                 <h1 class="section__heading mb-5 text-center">
                     Explore and Procure <br> your B2B Leads with Qleware
                 </h1>
