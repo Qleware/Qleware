@@ -12,42 +12,54 @@ export default {
                 { name: "Email", value: "santosh.k@qleware.com" },
                 { name: "Location", value: 'Bhavani, Erode, Tamil Nadu, India.' },
             ],
+            errorMessage: 'This field is required!',
             formFields: [
                 {
                     value: "",
                     label: "Name",
                     isRequired: true,
-                    rules: "none"
+                    rules: [v => !!v || this.errorMessage],
+                    type: "v-text-field",
                 },
                 {
                     value: "",
                     label: "Business email",
                     isRequired: true,
-                    rules: "none"
+                    rules: [v => !!v || this.errorMessage],
+                    type: "v-text-field",
                 },
                 {
                     value: "",
                     label: "Subject",
                     isRequired: true,
-                    rules: "none"
+                    rules: [v => !!v || this.errorMessage],
+                    type: "v-text-field",
                 },
                 {
                     value: "",
                     label: "Message",
                     isRequired: true,
-                    rules: "none"
+                    rules: [v => !!v || this.errorMessage],
+                    type: "v-textarea",
                 },
             ]
+        }
+    },
+    methods: {
+        resetFields() {
+            this.formFields.forEach(field => {
+                field.value = '';
+            })
         }
     }
 }
 </script>
 <template>
-    <main class="contact-page my-4 my-md-10">
+    <main class="contact-page mt-4 mb-6 my-md-10">
         <section class="contact section">
             <v-container>
                 <v-row>
-                    <v-col class="left">
+                    <v-col class="left" cols="12" md="6">
                         <div class="content">
                             <div class="text-left">
                                 <h1 class="section__heading mb-3">Let’s Connect and Grow Together!</h1>
@@ -67,7 +79,7 @@ export default {
                             </div>
                         </div>
                     </v-col>
-                    <v-col class="right">
+                    <v-col class="right" cols="12" md="6">
                         <v-sheet class="form rounded">
                             <div class="form__content px-8 py-8">
                                 <div class="text-left form__head mb-6">
@@ -76,10 +88,14 @@ export default {
                                     </p>
                                 </div>
                                 <div class="form__body">
-                                    <v-form @submit.prevent>
-                                        <v-text-field v-for="field in formFields" v-model="field.value"
+                                    <v-form @submit.prevent ref="form">
+                                        <!-- <v-text-field v-for="field in formFields" v-model="field.value"
                                             :label="field.label" :required="field.isRequired"
-                                            class="form__input"></v-text-field>
+                                            class="form__input"></v-text-field> -->
+                                        <component :is="field.type" v-model="field.value" v-for="field in formFields"
+                                            class="form__input" :label="field.label" :required="field.isRequired"
+                                            :rules="field.rules">
+                                        </component>
                                         <v-btn class="mt-2 btn--gradient" type="submit" block
                                             size="large">Submit</v-btn>
                                     </v-form>
