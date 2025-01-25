@@ -40,13 +40,16 @@ export default {
     },
     computed: {
         headerNavItems() {
-            return this.nav.filter(resourceItem => !["Terms & conditions", "Privacy policy"].includes(resourceItem.name))
+            return this.nav.filter(navItems => ["Home", "Service", "About", "Contact"].includes(navItems.name))
         },
         footerNavItems() {
             return this.nav.filter(navItem => ["Service", "Contact", "About"].includes(navItem.name))
         },
         footerResourceItems() {
             return this.nav.filter(resourceItem => ["Terms", "Privacy"].includes(resourceItem.name))
+        },
+        sideNavItems() {
+            return this.nav.filter(resourceItem => ["Home", "Service", "About", "Contact"].includes(resourceItem.name))
         }
     },
 }
@@ -83,10 +86,10 @@ export default {
 
         <v-navigation-drawer v-model="drawer" temporary class="bg-background">
             <v-list class="side-nav">
-                <v-list-item v-for="navItem in headerNavItems" :key="navItem" class="side-nav__item">
-                    <RouterLink :to="getPath(navItem)" class="side-nav__item__link"
-                        :class="getCurrentPath() == getPath(navItem) ? 'side-nav__item__link--active': ''">
-                        {{ navItem.name }}
+                <v-list-item v-for="sideNavItem in sideNavItems" :key="sideNavItem" class="side-nav__item">
+                    <RouterLink :to="getPath(sideNavItem)" class="side-nav__item__link"
+                        :class="getCurrentPath() == getPath(sideNavItem) ? 'side-nav__item__link--active': ''">
+                        {{ sideNavItem.name }}
                     </RouterLink>
                 </v-list-item>
             </v-list>

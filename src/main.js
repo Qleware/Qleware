@@ -40,6 +40,7 @@ const qlewareLightTheme = {
     'on-background': '#000000',
     'on-background-lighter-1': '#766E80',
     'on-background-lighter-2': '#575661',
+    error: '#DF0029',
   },
   variables: {},
 }

@@ -2,9 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ContactView from '../views/ContactView.vue'
 import AboutView from '../views/AboutView.vue'
-import PriceView from '../views/PriceView.vue'
-import PrivacyPolicyView from '../views/PrivacyPolicyView.vue'
-import TermsAndConditionsView from '../views/TermsAndConditionsView.vue'
+import TermsView from '@/views/TermsView.vue'
+import PrivacyView from '@/views/PrivacyView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 
 const router = createRouter({
@@ -26,19 +25,14 @@ const router = createRouter({
       component: ContactView,
     },
     {
-      path: '/price',
-      name: 'price',
-      component: PriceView,
-    },
-    {
       path: '/privacy',
       name: 'privacy',
-      redirect: '/',
+      component: PrivacyView,
     },
     {
       path: '/terms',
       name: 'terms',
-      redirect: '/',
+      component: TermsView,
     },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundView },
   ],

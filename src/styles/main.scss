@@ -19,10 +19,11 @@
     font-size: $font-size;
     text-transform: capitalize;
 }
-@mixin text-sub-heading($color, $font-size){
+@mixin text-sub-heading($color, $font-size, $font-family: base.$font-family){
     color: rgb($color);
     font-size: $font-size;
     font-weight: 400;
+    font-family: $font-family;
 }
 
 @mixin  text-banner-heading($font-size: base.$font-size-banner-heading){
@@ -156,12 +157,15 @@ a {
 
 
 
-.side-nav__item__link {
-    color: rgb(var(--v-theme-on-background-lighter-1));
-}
-
-.side-nav__item__link--active {
-    color: rgb(var(--v-theme-on-background));
+.side-nav {
+    &__item {
+        &__link {
+            @include nav-link($decoration: none, $text-color: var(--v-theme-on-background-lighter-1), $font-size: base.$font-size-nav-link);
+        }
+        &__link--active, &__link--active:active {
+            color: rgb(var(--v-theme-on-background));
+        } 
+    }
 }
 // Home page styling 
 .home {
@@ -393,5 +397,40 @@ a {
 
     .form__input {
         @include text-body(var(--v-theme-on-primary-lighter-2))
+    }
+}
+
+.privacy-page {
+    .section__heading {
+        @include text-heading(var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+    }
+    .section__body {
+        @include text-body(var(--v-theme-on-background-lighter-2))
+    }
+    p {
+        margin-bottom: 1rem;
+    }
+}
+.terms-page {
+    .terms {
+        .section__heading {
+            @include text-heading(var(--v-theme-on-background), $font-size: base.$font-size-heading-1);
+    
+        }
+        .section__sub-heading {
+            @include text-sub-heading($color: var(--v-theme-on-background), $font-size: base.$font-size-sub-heading-1);
+        }
+        .section__body {
+            @include text-body(var(--v-theme-on-background-lighter-2))
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+
+        &__item {
+            &__heading {
+                @include text-sub-heading($color: var(--v-theme-on-background), $font-size: base.$font-size-sub-heading-2);
+            }
+        }
     }
 }

@@ -1,10 +1,14 @@
 New:
 4. Node mailer
 3. Knowledge - Image
-10. service scolling to the heading
+12. Nav branch logo
+15. Check the website content is correct
+18. display burger icon on mobile device during screen size change
 
 In Progress:
-
+16. Add links to the socials
+17. Form validations
+10. service scolling to the heading
 
 Completed:
 4. Theme
@@ -20,3 +24,6 @@ Completed:
 1. Font family and size
 2. spacing
 5. Mobile responsiveness
+14. remove terms and privacy from nav bars
+13. Terms and privacy page
+11. Side nav styling
