@@ -1,5 +1,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+
 export default {
     data() {
         return {
@@ -96,7 +97,7 @@ export default {
         </v-navigation-drawer>
 
         <v-main>
-            <RouterView />
+            <RouterView></RouterView>
         </v-main>
 
         <v-footer class="footer">

@@ -1,14 +1,16 @@
 New:
-4. Node mailer
+
 3. Knowledge - Image
 12. Nav branch logo
 15. Check the website content is correct
 18. display burger icon on mobile device during screen size change
+11. Transition
 
 In Progress:
 16. Add links to the socials
 17. Form validations
 10. service scolling to the heading
+4. Node mailer
 
 Completed:
 4. Theme
