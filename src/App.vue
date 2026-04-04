@@ -13,7 +13,10 @@ export default {
                 { name: 'Terms', isActive: false, isSection: false },
                 { name: 'Privacy', isActive: false, isSection: false },
             ],
-            socialPlatformIcons: ['mdi-whatsapp', 'mdi-instagram', 'mdi-linkedin', 'mdi-facebook'],
+            socialPlatformIcons: [
+                { name: 'mdi-whatsapp', link: `https://wa.me/${import.meta.env.VITE_COMPANY_PHONE_NUMBER}` },
+                { name: 'mdi-linkedin', link: 'https://www.linkedin.com/company/qleware' },
+            ],
             drawer: false,
             isMdAndDown: null,
         }
@@ -146,8 +149,10 @@ export default {
                             <div class="footer__icons__social mb-8">
                                 <h3 class="footer__icons__social__heading mb-3">Socials</h3>
                                 <div>
-                                    <v-icon v-for=" iconName in socialPlatformIcons" :icon="iconName" :key="iconName"
-                                        class="footer__icons__social__icon"></v-icon>
+                                    <a :href="icon.link" v-for="icon in socialPlatformIcons" target="_blank">
+                                        <v-icon :icon="icon.name" :key="iconName"
+                                            class="footer__icons__social__icon"></v-icon>
+                                    </a>
                                 </div>
                             </div>
                             <div class="footer__icons__info">

@@ -30,7 +30,7 @@
     font-size: $font-size;
 }
 
-@mixin text-body($color) {
+    @mixin text-body($color) {
     font-family: base.$font-family-text;
     font-weight: 400;
     color: rgb($color)
@@ -119,6 +119,10 @@
 
 body {
     font-family: base.$font-family;
+
+}
+.v-snackbar__content {
+    @include text-body(var(--v-theme-light));
 }
 
 // Global tyling
@@ -396,6 +400,8 @@ a {
     .form__input {
         @include text-body(var(--v-theme-on-primary-lighter-2))
     }
+
+    
 }
 
 .privacy-page {

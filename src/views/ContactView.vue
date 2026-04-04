@@ -1,7 +1,6 @@
 <script>
 import BannerComponent from '@/components/misc/BannerComponent.vue';
-import EmailService from '@/services/EmailService';
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
+import emailjs from '@emailjs/browser'
 
 export default {
     components: {
@@ -17,49 +16,50 @@ export default {
             errorMessage: 'This field is required!',
             formFields: [
                 {
-                    value: "",
+                    value: '',
                     label: "Name",
                     isRequired: true,
                     rules: [v => !!v || this.errorMessage],
                     type: "v-text-field",
                 },
                 {
-                    value: "",
+                    value: '',
                     label: "Business email",
                     isRequired: true,
                     rules: [v => !!v || this.errorMessage],
                     type: "v-text-field",
                 },
                 {
-                    value: "",
+                    value: '',
                     label: "Subject",
                     isRequired: true,
                     rules: [v => !!v || this.errorMessage],
                     type: "v-text-field",
                 },
                 {
-                    value: "",
+                    value: '',
                     label: "Message",
                     isRequired: true,
                     rules: [v => !!v || this.errorMessage],
                     type: "v-textarea",
                 },
-            ]
+            ],
+            isMessageSent: false,
+            snackbar: false,
+            snackbarTimeout: 3000,
+            snackbarColor: "error",
+            snackbarText: "",
+            isMultiLineSnackbar: false,
+            loading: false,
         }
     },
     methods: {
-        resetFields() {
-            this.formFields.forEach(field => {
-                field.value = '';
-            })
-        },
-
         handleSubmission() {
             const emailServiceId = import.meta.env.VITE_EMAIL_SERVICE_ID
             const emailTemplateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID
             const emailPublicKey = import.meta.env.VITE_EMAIL_SERVICE_PUBLIC_KEY
             const ownerName = import.meta.env.VITE_COMPANY_OWNER_NAME.replace(/_/, ' ')
-            const isEmailServiceEnalbled = import.meta.env.VITE_ENABLE_EMAIL_SERVICE.toLowerCase()
+            const isEmailServiceEnabled = import.meta.env.VITE_ENABLE_EMAIL_SERVICE.toLowerCase()
             const customerName = this.formFields[0].value
             const customerEmail = this.formFields[1].value
             const subject = this.formFields[2].value
@@ -71,11 +71,40 @@ export default {
                 subject,
                 message,
             }
-            if (isEmailServiceEnalbled === 'true') {
-                emailjs.send(emailServiceId, emailTemplateId, templateParams, { publicKey: emailPublicKey })
-                    .then(response => console.log('SUCCESS!', response.status, response.text))
-                    .catch(err => console.log('FAILED...', err))
+            if (customerName === '' || customerEmail === '' || subject === '' || message === '') {
+                this.snackbarText = 'Please enter all the mandatory fields!'
+                this.snackbarColor = "error"
+                this.snackbar = true
+                return;
             }
+            if (isEmailServiceEnabled === 'true') {
+                this.loading = true;
+                emailjs.send(emailServiceId, emailTemplateId, templateParams, { publicKey: emailPublicKey })
+                    .then(response => {
+                        this.isMessageSent = true
+                        this.snackbarText = "Message sent"
+                        this.snackbarColor = "success"
+                        this.isMultiLineSnackbar = false
+                        this.snackbar = true
+                        console.log(response)
+                        this.resetFields();
+                        this.loading = false;
+                    })
+                    .catch(err => {
+                        this.isMessageSent = false
+                        this.snackbarText = "Sorry! Message not sent. Please contact us through email or phone."
+                        this.snackbarColor = "error"
+                        this.isMultiLineSnackbar = true
+                        this.snackbar = true
+                        console.log(err)
+                        this.loading = false
+                    })
+            }
+        },
+        resetFields() {
+            this.formFields.forEach(field => {
+                field.value = '';
+            })
         }
     }
 }
@@ -115,21 +144,23 @@ export default {
                                 </div>
                                 <div class="form__body">
                                     <v-form @submit.prevent @submit="handleSubmission">
-                                        <!-- <v-text-field v-for="field in formFields" v-model="field.value"
-                                            :label="field.label" :required="field.isRequired"
-                                            class="form__input"></v-text-field> -->
+                                        <!-- <v-text-field v-for="(field, index) in formFields" v-model="field.value"
+                                            :label="field.label" :required="field.isRequired" :rules="field.rules"
+                                            class="form__input" :key="index"></v-text-field> -->
                                         <component :is="field.type" v-model="field.value" v-for="field in formFields"
-                                            class="form__input" :label="field.label" :required="field.isRequired"
-                                            :rules="field.rules">
+                                            class="form__input" :label="field.label" :key="field.label">
                                         </component>
-                                        <v-btn class="mt-2 btn--gradient" type="submit" block
-                                            size="large">Submit</v-btn>
+                                        <v-btn class="mt-2 btn--gradient" block size="large" :loading="loading"
+                                            type="submit">Submit</v-btn>
                                     </v-form>
                                 </div>
                             </div>
                         </v-sheet>
                     </v-col>
                 </v-row>
+                <v-snackbar class="elevation-24 snack-notify" :multi-line="isMultiLineSnackbar" v-model="snackbar"
+                    :timeout="snackbarTimeout" :color="snackbarColor">{{ snackbarText
+                    }}</v-snackbar>
             </v-container>
         </section>
 
